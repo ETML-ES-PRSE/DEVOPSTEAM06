@@ -16,7 +16,7 @@
 
 1. Éditer la configuration MySQL
 
-   * `sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf`
+   * `sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf`
    * Modifier la ligne `bind-address = 127.0.0.1` en :
      `bind-address = 0.0.0.0`
    * Sauvegarder et quitter
@@ -51,7 +51,7 @@ EXIT;
 
 1. Éditer la configuration MySQL
 
-   * `sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf`
+   * `sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf`
    * Ajouter/modifier les lignes suivantes :
 
      ```ini
