@@ -21,12 +21,7 @@
      `bind-address = 0.0.0.0`
    * Sauvegarder et quitter
 
-2. Autoriser l'accès au pare-feu uniquement pour l'IP du serveur WordPress
-
-   * `sudo ufw allow from <IP_WP> to any port 3306`
-   * `sudo ufw reload`
-
-3. Redémarrer MySQL
+2. Redémarrer MySQL
 
    * `sudo systemctl restart mysql`
 
