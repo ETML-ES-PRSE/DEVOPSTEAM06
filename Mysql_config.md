@@ -17,7 +17,7 @@
 1. Éditer la configuration MySQL
 
 ```bash
-sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 ````
 
 Modifier la ligne :
@@ -33,7 +33,7 @@ sudo systemctl restart mysql
 
 3. Sécuriser le port avec UFW :
 ```bash
-sudo ufw allow from <IP_WP> to any port 3306
+sudo ufw allow from 10.0.6.12/28 to any port 3306
 sudo ufw deny 3306
 sudo ufw allow ssh
 sudo ufw enable
@@ -43,7 +43,7 @@ sudo ufw enable
 
 ## Créer l’utilisateur `wordpress` avec accès restreint
 
-> On donne accès uniquement à la base `wordpress_db` depuis l’IP du serveur WordPress (`192.168.93.135` dans notre cas).
+> On donne accès uniquement à la base `wordpress_db` depuis l’IP du serveur WordPress (`10.0.6.12/28` dans notre cas).
 
 ```bash
 sudo mysql -u root -p
@@ -53,11 +53,14 @@ Dans MySQL :
 
 ```sql
 CREATE DATABASE IF NOT EXISTS wordpress_db;
-DROP USER IF EXISTS 'wordpress'@'192.168.93.135';
-CREATE USER 'wordpress'@'192.168.93.135' IDENTIFIED BY 'motDePasseFort';
-GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress'@'192.168.93.135';
+DROP USER IF EXISTS 'apache'@'10.0.6.11';
+CREATE USER 'wordpress'@'10.0.6.11' IDENTIFIED BY 'motDePasseFort';
+GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress'@'10.0.6.11';
 FLUSH PRIVILEGES;
 EXIT;
+
+
+10.0.6.11
 ```
 
 ---

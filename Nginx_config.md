@@ -5,6 +5,7 @@
 * `sudo apt update` : Met à jour la liste des paquets.
 * `sudo apt install nginx` : Installe Nginx.
 * `sudo systemctl start nginx` : Démarre le service Nginx.
+
 * `sudo systemctl enable nginx` : Active Nginx au démarrage.
 * `sudo systemctl status nginx` : Vérifie que le service fonctionne.
 
